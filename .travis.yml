@@ -1,0 +1,21 @@
+dist: trusty
+language: java
+jdk:
+  - openjdk8
+addons:
+  sonarcloud:
+    organization: "alexxxdev"
+    token:
+      secure: "ApBdVq++RO73rwvltKhdFwKt4qmuv6wtUMoPHJmvurs0Md3ArBpUumIF4l2z6HtDihdH5HTJBwm5DmpV03m3/fh9vlwAFKqmqnK++cz1tLze8TvlXRYowTJOiuWuDncEzqD0/xdsEx/foUWSDCgrzhKdJ4lXqPlReaehysPewsncWxthsgURsjW1cWemYsfA2zmColfxdHrP2koMkygMjrpbbmsb9amw3e0ttyGmx9rku+a7hHTPRpeKApWRjFW2w+dlM0k3TBpS+PMeBKc8Lo3IouyMd10EOd9QOUtTgyOiGv+lWb9IzTBTw1NSdOUK6SwBNEM91FXXDiS7cHdqNMI1JUi/j1BVSfOiKi8T8YPcX+2A7lB7TPC0xzBILdLdSiUTjTPEfhfo86+y0tt4g8PhOxQYLV8SkV95Zw4iwpNg/0uMwIeZrxeMmd9fUictSoWUaMfRG5YXUfUVWxx9C7BU/m3l3Zd6bTUSZ7Z0VUEkTivckJ2X0hsqRt1pocd2T9jaA+SfEa3X52B5DN5e4jw0kJfmWT0Fb155D4IqesA6+7juXkpQx7qLAFwSLrt3HCsoODRFkIT3+WdN1iAuoH2rzfu+wKWZQ8OFqefh9mSh4Xl+CWcofEPq4Z4+d1a/U7uX3PNi/Iq4a2tC0y8oW5dLoPK2IBKOuGLp/G/eKpo="
+before_script:
+  - chmod +x gradlew
+script:
+  - ./gradlew detektAll
+after_success:
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/

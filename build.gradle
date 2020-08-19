@@ -1,0 +1,52 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.0"
+    }
+}
+
+plugins {
+    id "io.gitlab.arturbosch.detekt" version '1.11.1'
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+dependencies {
+    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:1.11.1"
+    detektPlugins project(":detekt-custom-rule")
+}
+
+task detektAll(type: io.gitlab.arturbosch.detekt.Detekt) {
+    //config.setFrom(files("$projectDir/detekt/detekt.yml"))
+    include("**/*.kt")
+    include("**/*.kts")
+    exclude("**/resources/**")
+    exclude("**/build/**")
+    exclude("**/tmp/**")
+
+    autoCorrect = true
+    ignoreFailures = false
+    buildUponDefaultConfig = true
+    parallel = true
+    failFast = true
+
+    setSource(files(projectDir))
+
+    reports {
+        xml.enabled = false
+        txt.enabled = false
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
