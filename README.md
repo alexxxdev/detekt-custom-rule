@@ -1,5 +1,6 @@
 # detekt-custom-rule
 
+[![](https://jitpack.io/v/alexxxdev/detekt-custom-rule.svg)](https://jitpack.io/#alexxxdev/detekt-custom-rule)
 [![Build Status](https://travis-ci.com/alexxxdev/detekt-custom-rule.svg?branch=master)](https://travis-ci.com/alexxxdev/detekt-custom-rule)
 
 Add it in your build.gradle
