@@ -6,9 +6,16 @@ sourceSets {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.4.0"
-    implementation "io.gitlab.arturbosch.detekt:detekt-api:1.11.1"
-    implementation "io.gitlab.arturbosch.detekt:detekt-core:1.11.1"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation "io.gitlab.arturbosch.detekt:detekt-api:$detektVersion"
+    implementation "io.gitlab.arturbosch.detekt:detekt-core:$detektVersion"
+
+    testImplementation "io.gitlab.arturbosch.detekt:detekt-test:$detektVersion"
+    testImplementation "org.assertj:assertj-core:$assertjVersion"
+    testImplementation "org.spekframework.spek2:spek-dsl-jvm:$spekVersion"
+    testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:$spekVersion") {
+        exclude group: 'org.jetbrains.kotlin'
+    }
 }
 
 sourceCompatibility = "8"
@@ -18,3 +25,9 @@ group = 'com.github.alexxxdev.detekt'
 archivesBaseName = 'detekt-custom-rule'
 version = '0.1'
 description =""
+
+test {
+    useJUnitPlatform{
+        includeEngines 'spek2'
+    }
+}

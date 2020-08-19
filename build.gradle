@@ -1,32 +1,37 @@
 buildscript {
+    ext.kotlinVersion = '1.4.0'
+    ext.detektVersion = '1.11.1'
+    ext.spekVersion = '2.0.9'
+    ext.assertjVersion = '3.16.1'
+
     repositories {
         google()
         jcenter()
         mavenCentral()
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.0"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
 
 plugins {
-    id "io.gitlab.arturbosch.detekt" version '1.11.1'
+    id "io.gitlab.arturbosch.detekt" version "$detektVersion"
 }
 
 allprojects {
     repositories {
         google()
         jcenter()
+        maven { url  "https://dl.bintray.com/spekframework/spek-dev" }
     }
 }
 
 dependencies {
-    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:1.11.1"
+    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion"
     detektPlugins project(":detekt-custom-rule")
 }
 
 task detektAll(type: io.gitlab.arturbosch.detekt.Detekt) {
-    //config.setFrom(files("$projectDir/detekt/detekt.yml"))
     include("**/*.kt")
     include("**/*.kts")
     exclude("**/resources/**")
