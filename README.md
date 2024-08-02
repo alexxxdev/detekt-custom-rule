@@ -5,7 +5,7 @@
 
 Add it in your build.gradle
 ```
-detektPlugins "com.github.alexxxdev:detekt-custom-rule:0.2"
+detektPlugins "com.github.alexxxdev:detekt-custom-rule:0.3"
 ```
 
 Add it in your config detekt

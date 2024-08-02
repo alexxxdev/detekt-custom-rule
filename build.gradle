@@ -1,6 +1,6 @@
 buildscript {
-    ext.kotlinVersion = '1.4.0'
-    ext.detektVersion = '1.11.1'
+    ext.kotlinVersion = '1.7.22'
+    ext.detektVersion = '1.22.0'
     ext.spekVersion = '2.0.9'
     ext.assertjVersion = '3.16.1'
 
@@ -42,7 +42,6 @@ task detektAll(type: io.gitlab.arturbosch.detekt.Detekt) {
     ignoreFailures = false
     buildUponDefaultConfig = true
     parallel = true
-    failFast = true
 
     setSource(files(projectDir))
 
