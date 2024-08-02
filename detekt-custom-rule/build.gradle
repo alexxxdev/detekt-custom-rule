@@ -31,3 +31,13 @@ test {
         includeEngines 'spek2'
     }
 }
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = "com.github.alexxxdev.detekt"
+            artifactId = "detekt-custom-rule"
+            version = "0.3"
+        }
+    }
+}
