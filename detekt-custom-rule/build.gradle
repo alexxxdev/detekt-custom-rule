@@ -38,6 +38,7 @@ publishing {
             groupId = "com.github.alexxxdev.detekt"
             artifactId = "detekt-custom-rule"
             version = "0.3"
+            from components.java
         }
     }
 }
