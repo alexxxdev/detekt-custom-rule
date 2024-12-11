@@ -13,4 +13,8 @@ Add it in your config detekt
 CodeStyle:
   RxJavaSubscription:
     active: true
+
+  TodoComment:
+    template: https://jira.com/browse/ABC-(\d+) (example)
+    active: true
 ```
