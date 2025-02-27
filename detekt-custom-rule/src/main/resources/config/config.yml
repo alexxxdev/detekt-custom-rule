@@ -1,0 +1,12 @@
+CodeStyle:
+  RxJavaSubscription:
+    active: false
+  BlankLineBeforeFunctionDeclarationRule:
+    active: true
+    autoCorrect: true
+  NoBlankLineInValueParameterListRule:
+    active: true
+    autoCorrect: true
+  BlankLineBeforeFirstPropertyDeclarationRule:
+    active: true
+    autoCorrect: true

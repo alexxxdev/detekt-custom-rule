@@ -9,8 +9,12 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     implementation "io.gitlab.arturbosch.detekt:detekt-api:$detektVersion"
     implementation "io.gitlab.arturbosch.detekt:detekt-core:$detektVersion"
+    implementation "io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion"
+    implementation "com.pinterest.ktlint:ktlint-rule-engine-core:$ktlintVersion"
+    implementation "com.pinterest.ktlint:ktlint-ruleset-standard:$ktlintVersion"
 
     testImplementation "io.gitlab.arturbosch.detekt:detekt-test:$detektVersion"
+    testImplementation "com.pinterest.ktlint:ktlint-test:$ktlintVersion"
     testImplementation "org.assertj:assertj-core:$assertjVersion"
     testImplementation "org.spekframework.spek2:spek-dsl-jvm:$spekVersion"
     testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:$spekVersion") {
@@ -18,12 +22,9 @@ dependencies {
     }
 }
 
-sourceCompatibility = "8"
-targetCompatibility = "8"
-
 group = 'com.github.alexxxdev.detekt'
 archivesBaseName = 'detekt-custom-rule'
-version = '0.3'
+version = '0.5.1'
 description =""
 
 test {
@@ -37,7 +38,7 @@ publishing {
         maven(MavenPublication) {
             groupId = "com.github.alexxxdev.detekt"
             artifactId = "detekt-custom-rule"
-            version = "0.3"
+            version = "0.5.1"
             from components.java
         }
     }

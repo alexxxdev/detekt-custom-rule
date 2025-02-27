@@ -10,6 +10,7 @@ class RxJavaSubscriptionRuleTest : Spek({
     val subject by memoized { RxJavaSubscriptionRule() }
 
     describe("RxJavaSubscription rule") {
+
         it("does not report") {
             val code = """
                 fun f() {

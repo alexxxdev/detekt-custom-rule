@@ -31,7 +31,8 @@ class RxJavaSubscriptionRule(config: Config = Config.empty) : Rule(config) {
                 val lastArgument = elementBody.children[1]
                 if (wrongCharactersBetweenArguments(firstArgument, lastArgument) ||
                     lastArgument.nextSibling?.node?.elementType != KtTokens.RPAR ||
-                    argumentsNotContainNewlineCharacters(firstArgument, lastArgument)) {
+                    argumentsNotContainNewlineCharacters(firstArgument, lastArgument)
+                ) {
                     report(expression)
                 }
             } else {
@@ -54,13 +55,13 @@ class RxJavaSubscriptionRule(config: Config = Config.empty) : Rule(config) {
 
     private fun wrongCharactersBetweenArguments(firstArgument: PsiElement?, lastArgument: PsiElement?): Boolean {
         return firstArgument?.nextSibling?.node?.elementType != KtTokens.COMMA ||
-                firstArgument?.nextSibling?.nextSibling !is PsiWhiteSpace ||
-                firstArgument.nextSibling?.nextSibling?.text?.contentEquals(" ") != true ||
-                firstArgument.nextSibling?.nextSibling?.nextSibling != lastArgument
+            firstArgument?.nextSibling?.nextSibling !is PsiWhiteSpace ||
+            firstArgument.nextSibling?.nextSibling?.text?.contentEquals(" ") != true ||
+            firstArgument.nextSibling?.nextSibling?.nextSibling != lastArgument
     }
 
     private fun argumentsNotContainNewlineCharacters(firstArgument: PsiElement?, lastArgument: PsiElement?): Boolean {
         return firstArgument?.textContains('\n') != true ||
-                lastArgument?.textContains('\n') != true
+            lastArgument?.textContains('\n') != true
     }
 }
