@@ -16,11 +16,11 @@ CodeStyle:
   BlankLineBeforeFunctionDeclarationRule:
     active: true
     autoCorrect: true
+    ignoreFunctionalInterfaces : true|false (defaultValue = false)
+    ignoreAnonymousObjects : true|false (defaultValue = false)
   NoBlankLineInValueParameterListRule:
     active: true
     autoCorrect: true
-    ignoreFunctionalInterfaces : true|false (defaultValue = false)
-    ignoreAnonymousObjects : true|false (defaultValue = false)
   BlankLineBeforeFirstPropertyDeclarationRule:
     active: true
     autoCorrect: true
